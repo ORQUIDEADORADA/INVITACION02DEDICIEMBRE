@@ -316,19 +316,6 @@
             </div>
         </section>
 
-        <!-- LISTA GRADUADOS -->
-        <section class="max-w-4xl mx-auto px-4 mb-16">
-            <div class="glass-santo rounded-3xl p-6 sm:p-10 text-center shadow-2xl">
-                <h2 class="font-fredoka text-2xl sm:text-3xl font-extrabold text-sky-900 mb-2">IEI 894 Santa Marianita de los niños</h2>
-                <p class="font-hand text-3xl sm:text-4xl font-bold text-pink-600 mb-4">Promoción Pequeños líderes del futuro (5 Años)</p>
-                <p class="text-slate-700 text-base font-semibold max-w-xl mx-auto mb-6">Conoce a los 22 pequeños graduados.</p>
-                
-                <button onclick="toggleGraduatesModal()" class="px-8 py-4 rounded-full bg-gradient-to-r from-sky-400 via-amber-400 to-pink-400 text-slate-900 font-fredoka font-black text-base hover:scale-105 transition-all shadow-xl border-3 border-white">
-                    <i data-lucide="users" class="inline w-5 h-5 mr-2"></i> Ver Lista de los 22 Graduados
-                </button>
-            </div>
-        </section>
-
         <!-- FOOTER -->
         <footer class="text-center text-slate-600 text-xs font-fredoka font-bold border-t-2 border-sky-200 pt-8 max-w-4xl mx-auto px-4">
             <p>IEI 894 SANTA MARIANITA DE LOS NIÑOS • PROMOCIÓN PEQUEÑOS LÍDERES DEL FUTURO 2026</p>
@@ -336,51 +323,7 @@
         </footer>
     </main>
 
-    <!-- MODAL GRADUADOS -->
-    <div id="graduatesModal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="glass-santo rounded-3xl max-w-2xl w-full max-h-[80vh] flex flex-col p-6 border-4 border-sky-400 shadow-2xl">
-            <div class="flex justify-between items-center mb-4 border-b-2 border-sky-200 pb-4">
-                <div>
-                    <h3 class="font-fredoka text-2xl font-extrabold text-sky-900">Nuestros Pequeños Graduados</h3>
-                    <p class="text-xs text-pink-600 font-fredoka font-bold">5 Años • 22 Niños</p>
-                </div>
-                <button onclick="toggleGraduatesModal()" class="text-slate-400 hover:text-slate-800 p-2">
-                    <i data-lucide="x" class="w-7 h-7"></i>
-                </button>
-            </div>
-            
-            <div id="graduatesList" class="overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-3 pr-2 text-sm">
-            </div>
-        </div>
-    </div>
-
     <script>
-        // 22 NIÑOS GRADUADOS (LISTA OFICIAL DEL PDF)
-        const graduados = [
-            "Bastian",
-            "Oriana",
-            "Abril",
-            "Samir",
-            "Aithana",
-            "Andryu",
-            "Emily",
-            "Catalina",
-            "Kerín",
-            "Yamileth",
-            "Santiago",
-            "Giorgio",
-            "Gia",
-            "Jordy",
-            "Antuaneth",
-            "Liam",
-            "Valentina",
-            "Kerly",
-            "Amy",
-            "Camila",
-            "Ythan",
-            "Esther"
-        ];
-
         window.playCinematicVideo = function() {
             const introAction = document.getElementById('introAction');
             const videoControls = document.getElementById('videoControls');
@@ -431,11 +374,6 @@
             }, 1000);
         };
 
-        window.toggleGraduatesModal = function() {
-            const modal = document.getElementById('graduatesModal');
-            if (modal) modal.classList.toggle('hidden');
-        };
-
         document.addEventListener('DOMContentLoaded', () => {
             if (window.lucide) lucide.createIcons();
 
@@ -453,17 +391,6 @@
                     e.preventDefault();
                     window.revealMainInvitation();
                 };
-            }
-
-            const gradListContainer = document.getElementById('graduatesList');
-            if (gradListContainer) {
-                gradListContainer.innerHTML = '';
-                graduados.forEach((nombre, idx) => {
-                    const item = document.createElement('div');
-                    item.className = "p-3 bg-sky-50 rounded-2xl border-2 border-sky-300 flex items-center gap-3 shadow-sm";
-                    item.innerHTML = `<span class="w-7 h-7 rounded-full bg-sky-400 text-white font-extrabold font-fredoka text-xs flex items-center justify-center border border-white shadow-sm">${idx+1}</span> <span class="uppercase text-xs sm:text-sm font-bold text-slate-800">${nombre}</span>`;
-                    gradListContainer.appendChild(item);
-                });
             }
         });
 
